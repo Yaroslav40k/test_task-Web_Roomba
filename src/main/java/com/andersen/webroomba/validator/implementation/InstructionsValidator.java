@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 @Component
 public class InstructionsValidator implements Validator<String> {
 
-    private static final Pattern INSTRUCTIONS = Pattern.compile("^[{WNES}]*$");
+    private static final Pattern INSTRUCTIONS_PATTERN = Pattern.compile("^[{WNES}]*$");
 
     @Override
     public void validate(String instructions) {
@@ -24,7 +24,7 @@ public class InstructionsValidator implements Validator<String> {
             throw new MissingParameterException("Instructions  were not specified");
         }
 
-        if (Boolean.FALSE.equals(INSTRUCTIONS.matcher(instructions).matches())) {
+        if (Boolean.FALSE.equals(INSTRUCTIONS_PATTERN.matcher(instructions).matches())) {
             throw new IllegalArgumentException("Unsupported chars found in the instruction");
         }
     }
