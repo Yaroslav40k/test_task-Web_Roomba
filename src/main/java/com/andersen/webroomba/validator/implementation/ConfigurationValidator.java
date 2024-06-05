@@ -33,6 +33,7 @@ public class ConfigurationValidator implements Validator<GridConfiguration> {
     @Override
     public void validate(final GridConfiguration suspiciousConfiguration) {
         //gridSizeValidator.validate(suspiciousConfiguration.getRoomSize());
+        System.out.println("changed");
         hooverStartPositionValidator.validate(suspiciousConfiguration);
         dirtPositionsValidator.validate(suspiciousConfiguration.getPatches());
         instructionsValidator.validate(suspiciousConfiguration.getInstructions());
